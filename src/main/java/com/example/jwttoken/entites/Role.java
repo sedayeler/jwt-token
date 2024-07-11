@@ -1,4 +1,4 @@
-package com.example.basicauth.entites;
+package com.example.jwttoken.entites;
 
 import org.springframework.security.core.GrantedAuthority;
 

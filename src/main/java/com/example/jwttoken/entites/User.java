@@ -1,4 +1,4 @@
-package com.example.basicauth.entites;
+package com.example.jwttoken.entites;
 
 import jakarta.persistence.*;
 import lombok.Builder;

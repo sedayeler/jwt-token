@@ -1,6 +1,6 @@
-package com.example.basicauth.entites.dtos;
+package com.example.jwttoken.entites.dtos;
 
-import com.example.basicauth.entites.Role;
+import com.example.jwttoken.entites.Role;
 import lombok.*;
 
 @Builder

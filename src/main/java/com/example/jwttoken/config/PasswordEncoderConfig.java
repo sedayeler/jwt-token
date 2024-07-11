@@ -1,4 +1,4 @@
-package com.example.basicauth.config;
+package com.example.jwttoken.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

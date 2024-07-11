@@ -1,6 +1,6 @@
-package com.example.basicauth.dataAccess;
+package com.example.jwttoken.dataAccess;
 
-import com.example.basicauth.entites.User;
+import com.example.jwttoken.entites.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

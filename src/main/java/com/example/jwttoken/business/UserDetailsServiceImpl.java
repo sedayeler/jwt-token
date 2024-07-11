@@ -1,7 +1,7 @@
-package com.example.basicauth.business;
+package com.example.jwttoken.business;
 
-import com.example.basicauth.dataAccess.UserDao;
-import com.example.basicauth.entites.User;
+import com.example.jwttoken.dataAccess.UserDao;
+import com.example.jwttoken.entites.User;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

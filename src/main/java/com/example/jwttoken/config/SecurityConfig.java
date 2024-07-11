@@ -1,7 +1,7 @@
-package com.example.basicauth.config;
+package com.example.jwttoken.config;
 
 
-import com.example.basicauth.entites.Role;
+import com.example.jwttoken.entites.Role;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;

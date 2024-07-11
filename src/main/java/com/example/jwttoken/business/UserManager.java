@@ -1,8 +1,8 @@
-package com.example.basicauth.business;
+package com.example.jwttoken.business;
 
-import com.example.basicauth.dataAccess.UserDao;
-import com.example.basicauth.entites.User;
-import com.example.basicauth.entites.dtos.CreateUserDto;
+import com.example.jwttoken.dataAccess.UserDao;
+import com.example.jwttoken.entites.User;
+import com.example.jwttoken.entites.dtos.CreateUserDto;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
