@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>jwttoken</artifactId>
+	<artifactId>basicauth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>jwttoken</name>
+	<name>basicauth</name>
 	<description>Project for Spring Boot</description>
 	<url/>
 	<licenses>

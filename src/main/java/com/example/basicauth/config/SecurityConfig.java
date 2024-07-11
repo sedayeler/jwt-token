@@ -1,6 +1,7 @@
-package com.example.jwttoken.config;
+package com.example.basicauth.config;
 
-import com.example.jwttoken.entites.Role;
+
+import com.example.basicauth.entites.Role;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -20,11 +21,13 @@ public class SecurityConfig {
         http
                 .headers(x -> x.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeRequests(x ->
+                .authorizeHttpRequests(x ->
                         x.requestMatchers("/public/**").permitAll()
-                                .requestMatchers("/private/user").hasRole(Role.Role_User.getRoleName())
-                                .requestMatchers("private/admin").hasRole(Role.Role_Admin.getRoleName())
+                                .requestMatchers("/private/user").hasAuthority(Role.USER.name())
+                                .requestMatchers("/private/admin").hasAuthority(Role.ADMIN.name())
+                                .anyRequest().authenticated()
                 )
+                .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
     }

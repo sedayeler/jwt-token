@@ -1,8 +1,8 @@
-package com.example.jwttoken.business;
+package com.example.basicauth.business;
 
-import com.example.jwttoken.dataAccess.UserDao;
-import com.example.jwttoken.entites.User;
-import com.example.jwttoken.entites.dtos.CreateUserDto;
+import com.example.basicauth.dataAccess.UserDao;
+import com.example.basicauth.entites.User;
+import com.example.basicauth.entites.dtos.CreateUserDto;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +23,11 @@ public class UserManager {
     }
 
     public User createUser(CreateUserDto createUserDto) {
+        Optional<User> existingUser = findByUsername(createUserDto.getUsername());
+        if (existingUser.isPresent()) {
+            throw new IllegalArgumentException("Username already exists");
+        }
+
         User newUser = User.builder()
                 .name(createUserDto.getName())
                 .username(createUserDto.getUsername())
