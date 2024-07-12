@@ -3,14 +3,11 @@ package com.example.jwttoken.entites.dtos;
 import com.example.jwttoken.entites.Role;
 import lombok.*;
 
+@Data
 @Builder
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class CreateUserDto {
-    String name;
-    String username;
-    String password;
-    Role role;
+    private String name;
+    private String username;
+    private String password;
+    private Role role;
 }

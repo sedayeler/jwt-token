@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/private")
 public class PrivateController {
-
     @GetMapping("/get")
     public String helloWorldPrivate() {
         return "Hello World! from private endpoint";
