@@ -1,4 +1,4 @@
-package com.example.jwttoken.entites;
+package com.example.jwttoken.model;
 
 import org.springframework.security.core.GrantedAuthority;
 

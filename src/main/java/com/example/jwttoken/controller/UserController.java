@@ -1,58 +1,37 @@
 package com.example.jwttoken.controller;
 
-import com.example.jwttoken.business.JwtService;
-import com.example.jwttoken.business.UserService;
-import com.example.jwttoken.entites.User;
-import com.example.jwttoken.entites.dtos.AuthDto;
-import com.example.jwttoken.entites.dtos.CreateUserDto;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import com.example.jwttoken.model.User;
+import com.example.jwttoken.service.UserManager;
+import com.example.jwttoken.dtos.responses.AuthResponse;
+import com.example.jwttoken.dtos.requests.AuthRequest;
+import com.example.jwttoken.dtos.requests.CreateUserRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/auth")
-@Slf4j
 public class UserController {
-    private final UserService userService;
-    private final JwtService jwtService;
-    private final AuthenticationManager authenticationManager;
+    private final UserManager userManager;
 
-    public UserController(UserService userService, JwtService jwtService, AuthenticationManager authenticationManager) {
-        this.userService = userService;
-        this.jwtService = jwtService;
-        this.authenticationManager = authenticationManager;
+    public UserController(UserManager userManager) {
+        this.userManager = userManager;
     }
 
-    @GetMapping("/welcome")
-    public String welcome() {
-        return "Welcome to JWT";
+    @PostMapping("/register")
+    public User register(@RequestBody CreateUserRequest createUserRequest) {
+        return this.userManager.register(createUserRequest);
     }
 
-    @PostMapping("/addNewUser")
-    public User addNewUser(@RequestBody CreateUserDto createUserDto) {
-        return this.userService.createUser(createUserDto);
+    @PostMapping("/login")
+    public AuthResponse authenticate(@RequestBody AuthRequest authRequest) {
+        return this.userManager.authenticate(authRequest);
     }
 
-    @PostMapping("/generateToken")
-    public String generateToken(@RequestBody AuthDto authDto) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authDto.getUsername(), authDto.getPassword()));
-        if (authentication.isAuthenticated()) {
-            return jwtService.generateToken(authDto.getUsername());
-        }
-        log.info("Invalid username " + authDto.getUsername());
-        throw new UsernameNotFoundException("Invalid username {}" + authDto.getUsername());
-    }
-
-    @GetMapping("/user")
-    public String getUser() {
-        return "This is a USER";
-    }
-
-    @GetMapping("/admin")
-    public String getAdmin() {
-        return "This is a ADMIN";
+    @PostMapping("/refreshtoken")
+    public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        userManager.refreshToken(request, response);
     }
 }

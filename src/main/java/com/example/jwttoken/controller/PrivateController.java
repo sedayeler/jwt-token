@@ -7,18 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/private")
 public class PrivateController {
-    @GetMapping("/get")
-    public String helloWorldPrivate() {
-        return "Hello World! from private endpoint";
-    }
-
     @GetMapping("/user")
-    public String helloWorldUserPrivate() {
-        return "Hello World! from user private endpoint";
+    public String getUser() {
+        return "This is a USER";
     }
 
     @GetMapping("/admin")
-    public String helloWorldAdminPrivate() {
-        return "Hello World! from user private endpoint";
+    public String getAdmin() {
+        return "This is a ADMIN";
     }
 }

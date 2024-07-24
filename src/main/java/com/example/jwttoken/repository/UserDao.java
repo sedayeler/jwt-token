@@ -1,6 +1,6 @@
-package com.example.jwttoken.dataAccess;
+package com.example.jwttoken.repository;
 
-import com.example.jwttoken.entites.User;
+import com.example.jwttoken.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
