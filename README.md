@@ -1,4 +1,4 @@
-# Spring JWT Token Kullanımı
+# Spring JWT Token 
 Bu proje, Spring Boot kullanarak JSON Web Token (JWT) ile kimlik doğrulama ve yetkilendirme işlemlerini nasıl gerçekleştireceğinizi gösterir. JWT, web uygulamalarında kullanıcıların kimliğini doğrulamak için yaygın olarak kullanılan bir token tabanlı kimlik doğrulama yöntemidir.
 
 ## Proje Bilgileri
